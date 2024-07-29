@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EduDom.Core.Aplication\EduDom.Core.Aplication.csproj" />
+    <ProjectReference Include="..\EduDom.Core.Domain\EduDom.Core.Domain.csproj" />
+    <ProjectReference Include="..\EduDom.Infraestructure.Identity\EduDom.Infraestructure.Identity.csproj" />
+    <ProjectReference Include="..\EduDom.Infraestructure.Persistence\EduDom.Infraestructure.Persistence.csproj" />
+    <ProjectReference Include="..\EduDom.Infraestructure.Shared\EduDom.Infraestructure.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

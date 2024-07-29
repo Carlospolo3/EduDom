@@ -1,0 +1,301 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la Escuela - Sistema EDUDOM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #F5F5F5;
+            color: #333;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #046BCD;
+            color: #FFFFFF;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+            overflow-y: auto;
+            transition: width 0.3s ease;
+        }
+
+            .sidebar .logo {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                text-align: center;
+                color: #FFFFFF;
+            }
+
+            .sidebar a {
+                display: block;
+                color: #FFFFFF;
+                padding: 10px;
+                text-decoration: none;
+                font-size: 16px;
+                border-radius: 4px;
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+
+                .sidebar a:hover {
+                    background: #FFFFFF;
+                    color: #046BCD;
+                }
+
+            .sidebar .btn-close {
+                background-color: #FF4D4D;
+                color: #FFFFFF;
+                border: none;
+                padding: 10px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                text-align: center;
+                transition: background-color 0.3s ease;
+                margin-top: 20px;
+            }
+
+                .sidebar .btn-close:hover {
+                    background-color: #CC0000;
+                }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 250px;
+            width: calc(100% - 250px);
+            background: #046BCD;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            color: #FFFFFF;
+        }
+
+            .header .logo {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .header .search-bar input {
+                padding: 8px;
+                border: 1px solid #D3D3D3;
+                border-radius: 4px;
+                width: 300px;
+            }
+
+            .header .notifications, .header .user-avatar, .header .date-time {
+                margin-left: 20px;
+            }
+
+                .header .notifications .icon {
+                    font-size: 20px;
+                    color: #FFFFFF;
+                }
+
+                .header .user-avatar img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    border: 2px solid #FFFFFF;
+                }
+
+            .header .date-time {
+                font-size: 16px;
+            }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            padding-top: 80px;
+        }
+
+        .form-section {
+            background: #FFFFFF;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+            .form-section h2 {
+                margin-bottom: 20px;
+            }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .btn-save {
+            background-color: #046BCD;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-save:hover {
+                background-color: #0359a8;
+            }
+
+        .school-list {
+            margin-top: 30px;
+        }
+
+            .school-list table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .school-list th, .school-list td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .school-list th {
+                background-color: #046BCD;
+                color: #FFFFFF;
+            }
+
+            .school-list tr:hover {
+                background-color: #f5f5f5;
+            }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Sistema EDUDOM</div>
+        <a href="/Home" class="nav-link"><i class="fas fa-home"></i>Inicio</a>
+        <a href="/Profile" class="nav-link"><i class="fas fa-user"></i>Perfil</a>
+        <a href="/Assignment/Index" class="nav-link"><i class="fas fa-tasks"></i>Tareas</a>
+        <a href="/Cours/Index" class="nav-link"><i class="fas fa-chalkboard-teacher"></i>Aulas</a>
+        <a href="/Qualification/Index" class="nav-link"><i class="fas fa-star"></i>Calificaciones</a>
+        <a href="/Attendance/Index" class="nav-link"><i class="fas fa-user-check"></i>Registro de Asistencia</a>
+        <a href="/Reports" class="nav-link"><i class="fas fa-chart-line"></i>Informe de Progreso</a>
+        <a href="/Employeer/Index" class="nav-link"><i class="fas fa-users"></i>Empleados</a>
+        <a href="/Department/Index" class="nav-link"><i class="fas fa-building"></i>Departamentos</a>
+        <a href="/District/Index" class="nav-link"><i class="fas fa-map-marker-alt"></i>Distritos</a>
+        <a href="/School/Index" class="nav-link"><i class="fas fa-school"></i>Escuelas</a>
+        <a href="/Subject/Index" class="nav-link"><i class="fas fa-book"></i>Asignaturas</a>
+        <a href="/Schedule" class="nav-link"><i class="fas fa-calendar-alt"></i>Horario</a>
+        <a href="/Messages" class="nav-link"><i class="fas fa-envelope"></i>Mensajes</a>
+        <a href="/Support" class="nav-link"><i class="fas fa-life-ring"></i>Soporte</a>
+        <button class="btn-close" onclick="closeSection()">Cerrar Sección</button>
+    </div>
+    <div class="header">
+        <div class="logo">Sistema EDUDOM</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <div class="notifications">
+            <i class="fas fa-bell icon"></i>
+        </div>
+        <div class="user-avatar">
+            <img src="https://i.imgur.com/QwhZRyL.png" alt="Avatar">
+        </div>
+        <div class="date-time">
+            <span id="currentDateTime"></span>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="form-section">
+            <h2>Detalles de la Escuela</h2>
+            <form method="post" action="/SaveSchool">
+                <div class="form-group">
+                    <label for="schoolNumber">Número del Centro Educativo</label>
+                    <input type="text" id="schoolNumber" name="schoolNumber" class="form-control" placeholder="Ingrese el número del centro educativo" required>
+                </div>
+                <div class="form-group">
+                    <label for="schoolName">Nombre de la Escuela</label>
+                    <input type="text" id="schoolName" name="schoolName" class="form-control" placeholder="Ingrese el nombre de la escuela" required>
+                </div>
+                <div class="form-group">
+                    <label for="schoolAddress">Dirección</label>
+                    <input type="text" id="schoolAddress" name="schoolAddress" class="form-control" placeholder="Ingrese la dirección de la escuela" required>
+                </div>
+                <div class="form-group">
+                    <label for="schoolCity">Ciudad</label>
+                    <input type="text" id="schoolCity" name="schoolCity" class="form-control" placeholder="Ingrese la ciudad" required>
+                </div>
+                <div class="form-group">
+                    <label for="schoolEmail">Correo Electrónico</label>
+                    <input type="email" id="schoolEmail" name="schoolEmail" class="form-control" placeholder="Ingrese el correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <label for="schoolPhone">Teléfono</label>
+                    <input type="text" id="schoolPhone" name="schoolPhone" class="form-control" placeholder="Ingrese el teléfono" required>
+                </div>
+                <div class="form-group">
+                    <label for="schoolYear">Año de Fundación</label>
+                    <input type="number" id="schoolYear" name="schoolYear" class="form-control" placeholder="Ingrese el año de fundación" required>
+                </div>
+                <button type="submit" class="btn-save">Guardar</button>
+            </form>
+        </div>
+        <div class="school-list">
+            <h3>Lista de Escuelas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Ciudad</th>
+                        <th>Correo Electrónico</th>
+                        <th>Teléfono</th>
+                        <th>Año de Fundación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí irán las filas de la lista de escuelas -->
+                    <tr>
+                        <td>001</td>
+                        <td>Escuela Primaria ABC</td>
+                        <td>Calle Falsa 123</td>
+                        <td>Ciudad Ejemplo</td>
+                        <td>info@escuelaabc.com</td>
+                        <td>(123) 456-7890</td>
+                        <td>1990</td>
+                    </tr>
+                    <!-- Añadir más filas según sea necesario -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function closeSection() {
+            // Aquí puedes agregar el código para cerrar la sección de la barra lateral
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            document.getElementById('currentDateTime').textContent = now.toLocaleDateString('es-ES', options);
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 60000); // Actualiza cada minuto
+    </script>
+</body>
+</html>

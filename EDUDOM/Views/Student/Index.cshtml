@@ -1,0 +1,362 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESTIÓN DE ESTUDIANTES</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #f5f5f5;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100%;
+            background: #0033A0;
+            color: #ffffff;
+            padding: 20px;
+            box-shadow: 4px 0 8px rgba(0,0,0,0.3);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+            .sidebar:hover {
+                width: 320px;
+            }
+
+            .sidebar .profile {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
+                .sidebar .profile img {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 5px solid #ffffff;
+                    margin-bottom: 15px;
+                }
+
+                .sidebar .profile h3 {
+                    color: #ffffff;
+                    font-size: 1.5rem;
+                }
+
+            .sidebar .nav-link {
+                display: flex;
+                align-items: center;
+                padding: 16px;
+                margin-bottom: 12px;
+                background-color: #ffffff;
+                border-radius: 12px;
+                color: #0033A0;
+                text-decoration: none;
+                font-weight: 600;
+                transition: background-color 0.3s ease, color 0.3s ease;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+
+                .sidebar .nav-link i {
+                    margin-right: 12px;
+                }
+
+                .sidebar .nav-link:hover {
+                    background-color: #0033A0;
+                    color: #ffffff;
+                    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+                }
+
+        .main-content {
+            margin-left: 280px;
+            padding: 20px;
+            background: url('https://images.unsplash.com/photo-1617732351434-045aeff2ea24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyNDY5MzN8MHwxfGFsbHwxfHx8fHx8fHx8MTY0NTM3MTU5Ng&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center;
+            background-size: cover;
+            min-height: 100vh;
+            border-radius: 20px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+            color: #333;
+        }
+
+            .main-content h1 {
+                font-size: 2.8rem;
+                margin-bottom: 1.5rem;
+                color: #0033A0;
+                text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+                text-transform: uppercase;
+            }
+
+        .table-section {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            border-left: 6px solid #0033A0;
+            overflow: hidden;
+        }
+
+            .table-section h2 {
+                border-bottom: 2px solid #0033A0;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+                color: #0033A0;
+                font-size: 1.6rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+        .students-table {
+            margin-top: 30px;
+        }
+
+            .students-table table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .students-table th, .students-table td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #dddddd;
+            }
+
+            .students-table th {
+                background-color: #0033A0;
+                color: #ffffff;
+            }
+
+            .students-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .students-table input {
+                width: 100%;
+                border: 1px solid #dddddd;
+                border-radius: 4px;
+                padding: 8px;
+            }
+
+        .btn-save {
+            color: #ffffff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+            .btn-save:hover {
+                background-color: #0056b3;
+            }
+
+        .alert {
+            margin-top: 20px;
+        }
+
+        .tutors-section {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            border: 1px solid #dddddd;
+            display: none; /* Ocultar inicialmente */
+        }
+
+            .tutors-section.active {
+                display: block; /* Mostrar cuando está activo */
+            }
+
+            .tutors-section h2 {
+                border-bottom: 2px solid #0033A0;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+                color: #0033A0;
+                font-size: 1.6rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            .tutors-section input {
+                width: 100%;
+                border: 1px solid #dddddd;
+                border-radius: 4px;
+                padding: 8px;
+            }
+
+        .toggle-button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #0033A0;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+            .toggle-button:hover {
+                background-color: #002080;
+            }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="https://i.imgur.com/QwhZRyL.png" alt="Foto de Perfil">
+            <h3>Administrador</h3>
+        </div>
+        <a href="/Profile" class="nav-link"><i class="fas fa-user"></i>Perfil</a>
+        <a href="/Assignments" class="nav-link"><i class="fas fa-tasks"></i>Tareas</a>
+        <a href="/Aulas" class="nav-link"><i class="fas fa-chalkboard-teacher"></i>Aulas</a>
+        <a href="/Qualifications" class="nav-link"><i class="fas fa-star"></i>Calificaciones</a>
+        <a href="/Attendance" class="nav-link"><i class="fas fa-user-check"></i>Registro de Asistencia</a>
+        <a href="/Reports" class="nav-link"><i class="fas fa-chart-line"></i>Informe de Progreso</a>
+        <a href="/Employees" class="nav-link"><i class="fas fa-users"></i>Empleados</a>
+        <a href="/Departments" class="nav-link"><i class="fas fa-building"></i>Departamentos</a>
+        <a href="/Districts" class="nav-link"><i class="fas fa-map-marker-alt"></i>Distritos</a>
+        <a href="/Schools" class="nav-link"><i class="fas fa-school"></i>Escuelas</a>
+    </div>
+    <div class="main-content">
+        <h1>Gestión de Estudiantes</h1>
+        <div class="container">
+            <div class="table-section">
+                <h2>Lista de Estudiantes</h2>
+                <div class="students-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Grado</th>
+                                <th>Sección</th>
+                                <th>Teléfono</th>
+                                <th>Correo Electrónico</th>
+                                <th>Nombre del Tutor</th>
+                                <th>Teléfono del Tutor</th>
+                                <th>Correo Electrónico del Tutor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Juan</td>
+                                <td>Pérez</td>
+                                <td>2005-06-15</td>
+                                <td>5º</td>
+                                <td>A</td>
+                                <td>123-456-7890</td>
+                                <td>juan.perez@example.com</td>
+                                <td>Roberto Pérez</td>
+                                <td>123-456-7890</td>
+                                <td>roberto.perez@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>María</td>
+                                <td>García</td>
+                                <td>2006-08-22</td>
+                                <td>4º</td>
+                                <td>B</td>
+                                <td>098-765-4321</td>
+                                <td>maria.garcia@example.com</td>
+                                <td>Ana García</td>
+                                <td>098-765-4321</td>
+                                <td>ana.garcia@example.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="table-section">
+                <h2>Agregar Estudiante</h2>
+                <form method="post" action="/Students/Create">
+                    <div class="mb-3">
+                        <label for="studentId" class="form-label">ID</label>
+                        <input type="text" class="form-control" id="studentId" name="StudentId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="firstName" name="FirstName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="lastName" name="LastName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dob" class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="dob" name="DateOfBirth" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="grade" class="form-label">Grado</label>
+                        <input type="text" class="form-control" id="grade" name="Grade" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="section" class="form-label">Sección</label>
+                        <input type="text" class="form-control" id="section" name="Section" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="phone" name="Phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" name="Email" required>
+                    </div>
+
+                    <!-- Apartado de Tutores -->
+                    <button type="button" class="toggle-button" onclick="toggleTutors()">Datos del Tutor</button>
+                    <div class="tutors-section" id="tutorsSection">
+                        <div class="mb-3">
+                            <label for="tutorName" class="form-label">Nombre del Tutor</label>
+                            <input type="text" class="form-control" id="tutorName" name="TutorName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tutorPhone" class="form-label">Teléfono del Tutor</label>
+                            <input type="tel" class="form-control" id="tutorPhone" name="TutorPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tutorEmail" class="form-label">Correo Electrónico del Tutor</label>
+                            <input type="email" class="form-control" id="tutorEmail" name="TutorEmail" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-save">Guardar Estudiante</button>
+                </form>
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success mt-3" role="alert">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleTutors() {
+            var section = document.getElementById('tutorsSection');
+            if (section.classList.contains('active')) {
+                section.classList.remove('active');
+            } else {
+                section.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

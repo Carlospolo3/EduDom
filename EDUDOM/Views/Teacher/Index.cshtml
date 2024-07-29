@@ -1,0 +1,243 @@
+﻿@{
+
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Profesor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #f5f5f5; /* Fondo gris claro */
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffffff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+        }
+
+        .teacher-container {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100%;
+            background: #0033A0; /* Azul bandera Dominicana */
+            color: #ffffff; /* Blanco */
+            padding: 20px;
+            box-shadow: 4px 0 8px rgba(0,0,0,0.3);
+            z-index: 1000;
+            overflow-y: auto;
+            transition: width 0.3s ease;
+        }
+
+            .teacher-container:hover {
+                width: 320px;
+            }
+
+        .teacher-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+            .teacher-info h3 {
+                margin-top: 0;
+                color: #ffffff; /* Blanco */
+                font-size: 1.5rem;
+            }
+
+        .content-area {
+            margin-left: 280px;
+            padding: 20px;
+            background: url('https://images.unsplash.com/photo-1607746880727-3e29263fbd65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyNDY5MzN8MHwxfGFsbHwxfHx8fHx8fHx8MTY0NTM3MTU5Ng&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center;
+            background-size: cover;
+            min-height: 100vh;
+            border-radius: 20px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+            color: #333;
+        }
+
+            .content-area h1 {
+                font-size: 2.8rem;
+                margin-bottom: 1.5rem;
+                color: #0033A0; /* Azul bandera Dominicana */
+                text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+            }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            margin-bottom: 12px;
+            background-color: #ffffff; /* Blanco */
+            border-radius: 12px;
+            color: #0033A0; /* Azul bandera Dominicana */
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+            .nav-link i {
+                margin-right: 12px;
+            }
+
+            .nav-link:hover {
+                background-color: #0033A0; /* Azul bandera Dominicana */
+                color: #ffffff; /* Blanco */
+                box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            }
+
+        .section {
+            background-color: #ffffff; /* Blanco */
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            border-left: 6px solid #0033A0; /* Azul bandera Dominicana */
+        }
+
+            .section h2 {
+                border-bottom: 2px solid #0033A0; /* Azul bandera Dominicana */
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+                color: #0033A0; /* Azul bandera Dominicana */
+                font-size: 1.6rem;
+                font-weight: 700;
+            }
+
+            .section p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #333;
+            }
+
+        .form-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+            .form-footer a {
+                color: #ffffff; /* Blanco */
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1.1rem;
+                background-color: #0033A0; /* Azul bandera Dominicana */
+                padding: 10px 20px;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            }
+
+                .form-footer a:hover {
+                    background-color: #002A6B; /* Azul más oscuro */
+                    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+                }
+    </style>
+</head>
+<body>
+    <div class="teacher-container">
+        <div class="teacher-info">
+            <img src="https://i.imgur.com/QwhZRyL.png" alt="Foto de Perfil" class="profile-pic">
+            <h3>Profesor/a</h3>
+        </div>
+        <a href="/Teacher/Index" class="nav-link"><i class="fas fa-user"></i>Perfil</a>
+        <a href="/Assignment/Index" class="nav-link"><i class="fas fa-tasks"></i>Tareas</a>
+        <a href="/Cours/Index" class="nav-link"><i class="fas fa-chalkboard-teacher"></i>Aulas</a>
+        <a href="/Qualifications/Index" class="nav-link"><i class="fas fa-star"></i>Calificaciones</a>
+        <a href="/Attendance/Index" class="nav-link"><i class="fas fa-user-check"></i>Registro de Asistencia</a>
+        <a href="/Reports" class="nav-link"><i class="fas fa-chart-line"></i>Informe de Progreso</a>
+    </div>
+    <div class="content-area">
+
+        <div class="container">
+            <!-- Información Personal -->
+            <div class="section">
+                <h2>Información Personal</h2>
+                <p><strong>Nombre completo:</strong> Juan Pérez Rodríguez</p>
+                <p><strong>Fotografía del perfil:</strong></p>
+                <img src="https://i.imgur.com/QwhZRyL.png" alt="Foto de Perfil" class="profile-pic">
+                <p><strong>Fecha de nacimiento:</strong> 15 de Marzo, 1980</p>
+                <p><strong>Nacionalidad:</strong> Dominicana</p>
+                <p><strong>Estado civil:</strong> Casado</p>
+            </div>
+            <!-- Información de Contacto -->
+            <div class="section">
+                <h2>Información de Contacto</h2>
+                <p><strong>Correo electrónico:</strong> juan.perez@example.com</p>
+                <p><strong>Número de teléfono:</strong> (809) 123-4567</p>
+                <p><strong>Dirección:</strong> Calle Falsa 123, Santo Domingo</p>
+            </div>
+            <!-- Información Profesional -->
+            <div class="section">
+                <h2>Información Profesional</h2>
+                <p><strong>Número de identificación del empleado:</strong> 123456</p>
+                <p><strong>Título académico:</strong> Licenciatura en Educación</p>
+                <p><strong>Especialidad:</strong> Matemáticas</p>
+                <p><strong>Experiencia profesional:</strong> 15 años</p>
+                <p><strong>Instituciones educativas:</strong> Colegio ABC, Escuela XYZ</p>
+            </div>
+            <!-- Horario de Trabajo -->
+            <div class="section">
+                <h2>Horario de Trabajo</h2>
+                <p><strong>Días y horas disponibles:</strong> Lunes a Viernes, 8:00 AM - 4:00 PM</p>
+                <p><strong>Materias:</strong> Matemáticas, Ciencias</p>
+            </div>
+            <!-- Evaluaciones y Logros -->
+            <div class="section">
+                <h2>Evaluaciones y Logros</h2>
+                <p><strong>Evaluaciones de desempeño:</strong> Excelente</p>
+                <p><strong>Certificaciones:</strong> Certificación en Didáctica Avanzada</p>
+                <p><strong>Publicaciones:</strong> Artículo sobre métodos de enseñanza</p>
+            </div>
+            <!-- Detalles del Aula -->
+            <div class="section">
+                <h2>Detalles del Aula</h2>
+                <p><strong>Información sobre clases:</strong> Matemáticas Básicas, Matemáticas Avanzadas</p>
+                <p><strong>Número de estudiantes:</strong> 30</p>
+            </div>
+            <!-- Notas y Comentarios -->
+            <div class="section">
+                <h2>Notas y Comentarios</h2>
+                <p><strong>Notas internas:</strong> Muy buen desempeño con los estudiantes, muestra un gran compromiso con su enseñanza.</p>
+            </div>
+            <!-- Información Adicional -->
+            <div class="section">
+                <h2>Información Adicional</h2>
+                <p><strong>Afiliaciones profesionales:</strong> Miembro de la Asociación de Educadores de la República Dominicana</p>
+                <p><strong>Actividades extracurriculares:</strong> Coordinador del Club de Matemáticas</p>
+            </div>
+            <!-- Historial Académico -->
+            <div class="section">
+                <h2>Historial Académico</h2>
+                <p><strong>Educación formal:</strong> Universidad Autónoma de Santo Domingo, Licenciatura en Educación</p>
+                <p><strong>Cursos de formación continua:</strong> Curso de Didáctica Avanzada en Matemáticas</p>
+            </div>
+            <div class="form-footer">
+                <a href="#" id="scroll-to-top" class="btn btn-primary">Volver al perfil</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('scroll-to-top').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
