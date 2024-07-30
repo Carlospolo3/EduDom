@@ -155,6 +155,28 @@
                 background-color: #0359a8;
             }
 
+        .period-grades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+            .period-grades .form-group {
+                flex: 1 1 11%;
+                margin-bottom: 0;
+            }
+
+            .period-grades label {
+                display: block;
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .period-grades input {
+                width: 100%;
+                max-width: 70px;
+            }
+
         .table-section {
             background: #FFFFFF;
             padding: 20px;
@@ -194,18 +216,19 @@
         <a href="/Profile" class="nav-link"><i class="fas fa-user"></i>Perfil</a>
         <a href="/Assignment/Index" class="nav-link"><i class="fas fa-tasks"></i>Tareas</a>
         <a href="/Cours/Index" class="nav-link"><i class="fas fa-chalkboard-teacher"></i>Aulas</a>
-        <a href="/Qualification/Index" class="nav-link"><i class="fas fa-star"></i>Calificaciones</a>
+        <a href="/Qualifications/Index" class="nav-link"><i class="fas fa-star"></i>Calificaciones</a>
         <a href="/Attendance/Index" class="nav-link"><i class="fas fa-user-check"></i>Registro de Asistencia</a>
-        <a href="/Reports" class="nav-link"><i class="fas fa-chart-line"></i>Informe de Progreso</a>
+        <a href="/Reports/Index" class="nav-link"><i class="fas fa-chart-line"></i>Informe de Progreso</a>
         <a href="/Employeer/Index" class="nav-link"><i class="fas fa-users"></i>Empleados</a>
         <a href="/Department/Index" class="nav-link"><i class="fas fa-building"></i>Departamentos</a>
-        <a href="/District/Index" class="nav-link"><i class="fas fa-map-marker-alt"></i>Distritos</a>
+        <a href="/Distric/Index" class="nav-link"><i class="fas fa-map-marker-alt"></i>Distritos</a>
+        <a href="/Province/Index" class="nav-link"><i class="fas fa-map"></i>Provincias</a>
         <a href="/School/Index" class="nav-link"><i class="fas fa-school"></i>Escuelas</a>
         <a href="/Subject/Index" class="nav-link"><i class="fas fa-book"></i>Asignaturas</a>
         <a href="/Schedule" class="nav-link"><i class="fas fa-calendar-alt"></i>Horario</a>
         <a href="/Messages" class="nav-link"><i class="fas fa-envelope"></i>Mensajes</a>
         <a href="/Support" class="nav-link"><i class="fas fa-life-ring"></i>Soporte</a>
-        <button class="btn-close" onclick="closeSection()">Cerrar Sección</button>
+        <button class="btn-close" onclick="goToLogin()">Cerrar Sección</button>
     </div>
     <div class="header">
         <div class="logo">Sistema EDUDOM</div>
@@ -241,73 +264,133 @@
                         <option value="">Seleccionar estudiante</option>
                     </select>
                 </div>
+                <!-- Sección de calificaciones por período -->
                 <div class="form-group">
-                    <label for="period">Periodo</label>
-                    <select id="period" name="period" class="form-control" required>
-                        <option value="">Seleccionar periodo</option>
-                        <option value="period1">Periodo 1</option>
-                        <option value="period2">Periodo 2</option>
-                        <option value="period3">Periodo 3</option>
-                    </select>
+                    <label>Calificaciones por Período</label>
+                    <div class="period-grades">
+                        <!-- Período 1 -->
+                        <div class="form-group">
+                            <label for="grade-period1">Período 1</label>
+                            <input type="number" id="grade-period1" name="grade-period1" step="0.01" min="0" max="100">
+                        </div>
+                        <!-- Período 2 -->
+                        <div class="form-group">
+                            <label for="grade-period2">Período 2</label>
+                            <input type="number" id="grade-period2" name="grade-period2" step="0.01" min="0" max="100">
+                        </div>
+                        <!-- Período 3 -->
+                        <div class="form-group">
+                            <label for="grade-period3">Período 3</label>
+                            <input type="number" id="grade-period3" name="grade-period3" step="0.01" min="0" max="100">
+                        </div>
+                        <!-- Período 4 -->
+                        <div class="form-group">
+                            <label for="grade-period4">Período 4</label>
+                            <input type="number" id="grade-period4" name="grade-period4" step="0.01" min="0" max="100">
+                        </div>
+                        <!-- Período 5 -->
+                        <div class="form-group">
+                            <label for="grade-period5">Período 5</label>
+                            <input type="number" id="grade-period5" name="grade-period5" step="0.01" min="0" max="100">
+                        </div>
+                        <!-- Período 6 -->
+                        <div class="form-group">
+                            <label for="grade-period6">Período 6</label>
+                            <input type="number" id="grade-period6" name="grade-period6" step="0.01" min="0" max="100">
+                        </div>
+                        <!-- Período 7 -->
+                        <div class="form-group">
+                            <label for="grade-period7">Período 7</label>
+                            <input type="number" id="grade-period7" name="grade-period7" step="0.01" min="0" max="100">
+                        </div>
+                        <!-- Período 8 -->
+                        <div class="form-group">
+                            <label for="grade-period8">Período 8</label>
+                            <input type="number" id="grade-period8" name="grade-period8" step="0.01" min="0" max="100">
+                        </div>
+                    </div>
                 </div>
                 <button type="submit" class="btn-save">Guardar</button>
             </form>
         </div>
         <div class="table-section">
-            <h2>Listado de Calificaciones Asignadas</h2>
+            <h2>Lista de Estudiantes</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Sección</th>
                         <th>Estudiante</th>
-                        <th>Periodo</th>
+                        <th>Período 1</th>
+                        <th>Período 2</th>
+                        <th>Período 3</th>
+                        <th>Período 4</th>
+                        <th>Período 5</th>
+                        <th>Período 6</th>
+                        <th>Período 7</th>
+                        <th>Período 8</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- Aquí se mostrarán las calificaciones asignadas -->
+                <tbody id="student-list">
+                    <!-- Filas generadas dinámicamente aquí -->
                 </tbody>
             </table>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
- 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Datos simulados de estudiantes por sección
-        const studentsBySection = {
-            section1: [
-                { id: 'student1', name: 'Estudiante 1' },
-                { id: 'student2', name: 'Estudiante 2' }
-            ],
-            section2: [
-                { id: 'student3', name: 'Estudiante 3' },
-                { id: 'student4', name: 'Estudiante 4' }
-            ],
-            section3: [
-                { id: 'student5', name: 'Estudiante 5' },
-                { id: 'student6', name: 'Estudiante 6' }
-            ]
-        };
+        function goToLogin() {
+            window.location.href = '/Account/Logout';
+        }
 
         function updateStudentList() {
-            const sectionSelect = document.getElementById('section');
-            const studentSelect = document.getElementById('student');
-            const selectedSection = sectionSelect.value;
+            var section = document.getElementById('section').value;
+            var studentSelect = document.getElementById('student');
+            var studentList = document.getElementById('student-list');
 
+            // Limpiar las opciones actuales
             studentSelect.innerHTML = '<option value="">Seleccionar estudiante</option>';
+            studentList.innerHTML = '';
 
-            if (selectedSection && studentsBySection[selectedSection]) {
-                studentsBySection[selectedSection].forEach(student => {
-                    const option = document.createElement('option');
-                    option.value = student.id;
-                    option.textContent = student.name;
-                    studentSelect.appendChild(option);
+            if (section) {
+                // Aquí se podrían cargar los estudiantes basados en la sección seleccionada
+                // Por simplicidad, agregamos ejemplos estáticos
+                var students = {
+                    'section1': [
+                        { name: 'Estudiante 1', grades: [85, 90, 78, 88, 92, 85, 80, 87] },
+                        { name: 'Estudiante 2', grades: [75, 80, 70, 78, 82, 76, 72, 79] }
+                    ],
+                    'section2': [
+                        { name: 'Estudiante 3', grades: [88, 85, 80, 90, 92, 88, 85, 90] },
+                        { name: 'Estudiante 4', grades: [70, 65, 75, 80, 68, 72, 74, 70] }
+                    ],
+                    'section3': [
+                        { name: 'Estudiante 5', grades: [95, 90, 92, 88, 93, 89, 94, 91] },
+                        { name: 'Estudiante 6', grades: [80, 85, 78, 82, 84, 80, 75, 77] }
+                    ]
+                };
+
+                var studentListData = students[section];
+                studentListData.forEach(function (student) {
+                    var row = document.createElement('tr');
+                    row.innerHTML = '<td>' + student.name + '</td>' +
+                        student.grades.map(function (grade) {
+                            return '<td>' + grade + '</td>';
+                        }).join('');
+                    studentList.appendChild(row);
+                });
+
+                // Llenar el select de estudiantes
+                studentListData.forEach(function (student) {
+                    var option = document.createElement('option');
+                    option.value = student.name;
+                    option.text = student.name;
+                    studentSelect.add(option);
                 });
             }
         }
 
-        document.getElementById('currentDateTime').innerText = new Date().toLocaleString();
+        document.addEventListener('DOMContentLoaded', function () {
+            var currentDateTime = new Date().toLocaleString('es-ES', { dateStyle: 'full', timeStyle: 'short' });
+            document.getElementById('currentDateTime').textContent = currentDateTime;
+        });
     </script>
 </body>
 </html>
