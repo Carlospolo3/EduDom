@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Aulas - Sistema EDUDOM</title>
+    <title>Soporte en Línea - Sistema EDUDOM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -124,7 +124,7 @@
             padding-top: 80px;
         }
 
-        .class-form, .class-list {
+        .support-section {
             background: #FFFFFF;
             padding: 20px;
             border-radius: 8px;
@@ -132,33 +132,55 @@
             margin-bottom: 20px;
         }
 
-            .class-form h2, .class-list h2 {
+            .support-section h2 {
                 margin-bottom: 20px;
             }
 
-            .class-form .form-group, .class-list table {
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+            .contact-info h3 {
+                margin-bottom: 10px;
+            }
+
+            .contact-info p {
+                margin: 5px 0;
+            }
+
+            .contact-info .social-media a {
+                margin-right: 15px;
+                color: #046BCD;
+                font-size: 20px;
+                transition: color 0.3s ease;
+            }
+
+                .contact-info .social-media a:hover {
+                    color: #003B6F;
+                }
+
+        .support-form {
+            margin-bottom: 20px;
+        }
+
+            .support-form .form-group {
                 margin-bottom: 15px;
             }
 
-            .class-list table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-
-            .class-list th, .class-list td {
-                padding: 10px;
-                text-align: left;
-                border-bottom: 1px solid #ddd;
-            }
-
-            .class-list th {
-                background-color: #046BCD;
+            .support-form button {
+                background: #046BCD;
                 color: #FFFFFF;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
             }
 
-            .class-list tr:hover {
-                background-color: #f5f5f5;
-            }
+                .support-form button:hover {
+                    background: #003B6F;
+                }
     </style>
 </head>
 <body>
@@ -174,12 +196,12 @@
         <a href="/Employeer/Index" class="nav-link"><i class="fas fa-users"></i>Empleados</a>
         <a href="/Department/Index" class="nav-link"><i class="fas fa-building"></i>Departamentos</a>
         <a href="/Distric/Index" class="nav-link"><i class="fas fa-map-marker-alt"></i>Distritos</a>
-        <a href="/Province/Index" class="nav-link"><i class="fas fa-globe"></i>Provincias</a>
+        <a href="/Province/Index" class="nav-link"><i class="fas fa-map"></i>Provincias</a>
         <a href="/School/Index" class="nav-link"><i class="fas fa-school"></i>Escuelas</a>
         <a href="/Subject/Index" class="nav-link"><i class="fas fa-book"></i>Asignaturas</a>
         <a href="/Schedule" class="nav-link"><i class="fas fa-calendar-alt"></i>Horario</a>
         <a href="/Messages" class="nav-link"><i class="fas fa-envelope"></i>Mensajes</a>
-        <a href="Home/Supports" class="nav-link"><i class="fas fa-life-ring"></i>Soporte</a>
+        <a href="/Support" class="nav-link"><i class="fas fa-life-ring"></i>Soporte</a>
         <button class="btn-close" onclick="goToLogin()">Cerrar Sección</button>
     </div>
     <div class="header">
@@ -198,59 +220,50 @@
         </div>
     </div>
     <div class="main-content">
-        <!-- Formulario para Agregar Aula -->
-        <div class="class-form">
-            <h2>Agregar Nueva Aula</h2>
-            <form>
-                <div class="form-group">
-                    <label for="className">Nombre del Aula</label>
-                    <input type="text" class="form-control" id="className" placeholder="Ingrese el nombre del aula">
-                </div>
-                <div class="form-group">
-                    <label for="classCapacity">Capacidad</label>
-                    <input type="number" class="form-control" id="classCapacity" placeholder="Ingrese la capacidad del aula">
-                </div>
-                <div class="form-group">
-                    <label for="schoolSelect">Escuela</label>
-                    <select class="form-control" id="schoolSelect">
-                        <option value="">Seleccione una escuela</option>
-                        <option value="1">Escuela Primaria San Juan</option>
-                        <option value="2">Escuela Secundaria Santa María</option>
-                        <!-- Más opciones según sea necesario -->
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Agregar Aula</button>
-            </form>
+        <!-- Información de Contacto -->
+        <div class="support-section contact-info">
+            <h2>Información de Contacto</h2>
+            <p><strong>Teléfono:</strong> +1 (809) 123-4567</p>
+            <p><strong>Email:</strong> soporte@edudom.com</p>
+            <p><strong>Dirección:</strong> Calle Principal, No. 123, Ciudad, País</p>
+            <div class="social-media">
+                <a href="https://facebook.com/EDUDOM" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/EDUDOM" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/company/edudom" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </div>
 
-        <!-- Lista de Aulas -->
-        <div class="class-list">
-            <h2>Lista de Aulas</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre del Aula</th>
-                        <th>Capacidad</th>
-                        <th>Escuela</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Aula 101</td>
-                        <td>30</td>
-                        <td>Escuela Primaria San Juan</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Aula 102</td>
-                        <td>25</td>
-                        <td>Escuela Secundaria Santa María</td>
-                    </tr>
-                    <!-- Más filas según sea necesario -->
-                </tbody>
-            </table>
+        <!-- Formulario de Soporte -->
+        <div class="support-section support-form">
+            <h2>Solicitar Soporte</h2>
+            <form action="/Support/Submit" method="post">
+                <div class="form-group">
+                    <label for="firstName">Nombre:</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Apellido:</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userType">Tipo de Usuario:</label>
+                    <select class="form-control" id="userType" name="userType" required>
+                        <option value="Estudiante">Estudiante</option>
+                        <option value="Maestro">Maestro</option>
+                        <option value="Administrador">Administrador</option>
+                        <!-- Agregar más tipos según sea necesario -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="details">Detalles:</label>
+                    <textarea class="form-control" id="details" name="details" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+            </form>
         </div>
     </div>
 

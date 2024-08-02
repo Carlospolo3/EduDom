@@ -18,7 +18,7 @@ namespace EDUDOM.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Supports()
         {
             return View();
         }
