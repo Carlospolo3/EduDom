@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EduDom.Core.Domain.Entities
 {
-    public class TimeClass
+    public class Schedule
     {
         public int Id { get; set; }
         public string ClassName { get; set; }

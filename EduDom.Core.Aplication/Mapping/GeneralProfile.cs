@@ -48,8 +48,8 @@ namespace EduDom.Core.Application.Mappings
             CreateMap<SubjectsSaveViewModels, Subjects>();
 
             // Time Class mappings
-            CreateMap<TimeClass, TimeClassViewModels>();
-            CreateMap<TimeClassSaveViewModel, TimeClass>();
+            CreateMap<Schedule, TimeClassViewModels>();
+            CreateMap<TimeClassSaveViewModel, Schedule>();
 
             // District mappings
             CreateMap<District, DistrictViewModels>();

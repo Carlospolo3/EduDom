@@ -33,7 +33,7 @@ namespace EduDom.Infraestructure.Persistence.Context
         public DbSet<Student> Students { get; set; }
         public DbSet<Subjects> Subjects { get; set; }
 
-        public DbSet<TimeClass> TimeClasses { get; set; }
+        public DbSet<Schedule> TimeClasses { get; set; }
 
         public DbSet<User> users { get; set; }
 

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EduDom.Core.Aplication.Interface.Service
+namespace EduDom.Core.Aplication.Interface.Repositories
 {
-    public interface ITimeClass : IGenericService<TimeClassSaveViewModel, TimeClassViewModels, Schedule>
+    public interface UserRepository : IGenericRepository<User>
     {
     }
 }

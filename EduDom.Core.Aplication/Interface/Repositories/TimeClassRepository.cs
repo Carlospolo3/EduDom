@@ -7,34 +7,34 @@ using System.Threading.Tasks;
 
 namespace EduDom.Core.Aplication.Interface.Repositories
 {
-    public class TimeClassRepository : IGenericRepository<TimeClass>
+    public class TimeClassRepository : IGenericRepository<Schedule>
     {
-        public Task<TimeClass> AddAsync(TimeClass entity)
+        public Task<Schedule> AddAsync(Schedule entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(TimeClass entity)
+        public Task DeleteAsync(Schedule entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<TimeClass>> GetAllAsync()
+        public Task<List<Schedule>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<TimeClass>> GetAllWithIncludeAsync(List<string> props)
+        public Task<List<Schedule>> GetAllWithIncludeAsync(List<string> props)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TimeClass> GetByIdAsync(int id)
+        public Task<Schedule> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(TimeClass entity, int id)
+        public Task UpdateAsync(Schedule entity, int id)
         {
             throw new NotImplementedException();
         }
