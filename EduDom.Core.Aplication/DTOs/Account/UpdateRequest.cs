@@ -9,7 +9,7 @@ namespace EduDom.Core.Aplication.DTOs.Account
     public class UpdateRequest
     {
         public string Id { get; set; }
-        public string IdCard { get; set; }
+        public string IdUser { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UserName { get; set; }

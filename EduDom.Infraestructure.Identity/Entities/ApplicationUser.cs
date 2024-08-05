@@ -11,7 +11,7 @@ namespace EduDom.Infraestructure.Identity.Entities
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string IdCard { get; set; }
+        public string IdUser { get; set; }
         public bool IsVerified { get; set; } = false;
         public int TypeUser { get; set; }
 

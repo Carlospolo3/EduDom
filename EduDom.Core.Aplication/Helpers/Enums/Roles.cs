@@ -8,8 +8,9 @@ namespace EduDom.Core.Aplication.Helpers.Enums
 {
     public enum Roles
     {
-        Admin = 1,
-        Teacher,
-        Student
+        Student = 4,
+        Teacher = 3,
+        Administrador = 1,
+        Director = 2
     }
 }

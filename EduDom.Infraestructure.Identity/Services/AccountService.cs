@@ -60,7 +60,7 @@ namespace EduDom.Infraestructure.Identity.Services
             }
 
             response.Id = user.Id;
-            response.IdCard = user.IdCard;
+            response.IdUser = user.IdUser;
             response.FirstName = user.FirstName;
             response.LastName = user.LastName;
             response.Email = user.Email;
@@ -102,7 +102,7 @@ namespace EduDom.Infraestructure.Identity.Services
 
             var user = new ApplicationUser
             {
-                IdCard = request.IdCard,
+                IdUser = request.IdUser,
                 Email = request.Email,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
@@ -121,9 +121,9 @@ namespace EduDom.Infraestructure.Identity.Services
                 return response;
             }
 
-            if (user.TypeUser == (int)Roles.Admin)
+            if (user.TypeUser == (int)Roles.Administrador)
             {
-                await _userManager.AddToRoleAsync(user, Roles.Admin.ToString());
+                await _userManager.AddToRoleAsync(user, Roles.Administrador.ToString());
 
             }
             else
@@ -153,9 +153,9 @@ namespace EduDom.Infraestructure.Identity.Services
             ApplicationUser user = await _userManager.FindByIdAsync(id);
             if (user != null)
             {
-                if (user.TypeUser == (int)Roles.Admin)
+                if (user.TypeUser == (int)Roles.Administrador)
                 {
-                    user.IdCard = request.IdCard;
+                    user.IdUser = request.IdUser;
                     user.FirstName = request.FirstName;
                     user.LastName = request.LastName;
                     user.UserName = request.UserName;
@@ -175,7 +175,7 @@ namespace EduDom.Infraestructure.Identity.Services
                 }
                 else
                 {
-                    user.IdCard = request.IdCard;
+                    user.IdUser = request.IdUser;
                     user.FirstName = request.FirstName;
                     user.LastName = request.LastName;
                     user.UserName = request.UserName;
@@ -337,7 +337,7 @@ namespace EduDom.Infraestructure.Identity.Services
                     Id = user.Id,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
-                    IdCard = user.IdCard,
+                    IdUser = user.IdUser,
                     UserName = user.UserName,
                     Email = user.Email,
                     PhoneNumber = user.PhoneNumber,
@@ -361,7 +361,7 @@ namespace EduDom.Infraestructure.Identity.Services
             if (user != null)
             {
                 response.Id = user.Id;
-                response.IdCard = user.IdCard;
+                response.IdUser = user.IdUser;
                 response.Email = user.Email;
                 response.FirstName = user.FirstName;
                 response.LastName = user.LastName;
