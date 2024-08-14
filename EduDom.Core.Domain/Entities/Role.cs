@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace EduDom.Core.Domain.Entities
 {
-    public class District
+    public class Role
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int ProvinceId { get; set; }
-        public Province Province { get; set; }
-    }
+        public string RoleName { get; set; }
 
+    }
 }

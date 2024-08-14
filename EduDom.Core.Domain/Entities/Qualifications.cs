@@ -10,7 +10,10 @@ namespace EduDom.Core.Domain.Entities
     {
         public int Id { get; set; }
         public int Calification { get; set; }
-        public string Subject { get; set; }
+        public int SubjectId { get; set; }
+        public Subjects Subject { get; set; }
+        public int StudentId { get; set; }
+        public Student Student { get; set; }
     }
 
 }

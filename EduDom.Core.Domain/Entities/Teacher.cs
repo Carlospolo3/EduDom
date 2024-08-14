@@ -8,5 +8,17 @@ namespace EduDom.Core.Domain.Entities
 {
     public class Teacher
     {
+        public int Id { get; set; }
+        public int IDCard { get; set; }
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Address { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Department { get; set; }
+        public string ProfilePictureUrl { get; set; }
+        public List<Attendance> Attendances { get; set; }
+        public List<Schedule> Schedules { get; set; }
+
     }
 }

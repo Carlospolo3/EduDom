@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EduDom.Core.Domain.Entities
+namespace EduDom.Core.Domain.Common
 {
-    public class Logins
+    public abstract class BaseUser
     {
     }
 }

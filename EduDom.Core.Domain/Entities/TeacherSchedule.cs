@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace EduDom.Core.Domain.Entities
 {
-    public class Course
+    public class TeacherSchedule
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-
+        public int ScheduleId { get; set; }
+        public Schedule Schedule { get; set; }
+        public int MyProperty { get; set; }
     }
-
 }

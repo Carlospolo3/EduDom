@@ -9,9 +9,12 @@ namespace EduDom.Core.Domain.Entities
     public class Attendance
     {
         public int Id { get; set; }
-        public int Students { get; set; }
+        public int StudentId { get; set; }
+        public int TeacherId { get; set; }
         public DateTime Date { get; set; }
-        public bool Presente { get; set; }
+        public bool isPresent { get; set; }
+        public Student Student { get; set; }
+        public Teacher Teacher { get; set; }
     }
 
 }

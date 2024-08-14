@@ -3,7 +3,6 @@ using EduDom.Core.Aplication.DTOs.Email;
 using EduDom.Core.Aplication.Helpers.Enums;
 using EduDom.Core.Aplication.Interface.Service;
 using EduDom.Core.Application.Interfaces.Services;
-using EduDom.Infraestructure.Identity.Context;
 using EduDom.Infraestructure.Identity.Entities;
 using EduDom.Infraestructure.Identity.Services;
 using Microsoft.AspNetCore.Identity;

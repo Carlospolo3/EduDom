@@ -12,9 +12,16 @@ namespace EduDom.Core.Domain.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string Course { get; set; }
+        public string IdentificationNumber { get; set; }
+        public int CourseId { get; set; }
+        public Course Course { get; set; }
         public string Email { get; set; }
         public string Telefono {  get; set; }
+        public int RoleId { get; set; }
+        public Role Role { get; set; }
+        public List<Attendance> Attendances { get; set; }
+        public List<Reports> Reports { get; set; }
+        public List<Qualifications> Qualifications { get; set; }
     }
 
 }

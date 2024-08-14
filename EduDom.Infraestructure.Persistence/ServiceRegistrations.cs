@@ -1,12 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EduDom.Core.Aplication.Interface.Repositories;
+using EduDom.Infraestructure.Persistence.Context;
+using EduDom.Infraestructure.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace EduDom.Infraestructure.Identity
+
+namespace EduDom.Infraestructure.Persistence
 {
-    internal class ServiceRegistrations
+    public static class ServiceRegistrations
     {
+        public static void AddInfrastructurePersistence(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<ApplicationContext>(op => op.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), m =>
+            m.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
+
+
+            #region Repositories
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            #endregion
+
+        }
     }
 }

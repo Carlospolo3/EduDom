@@ -12,5 +12,9 @@ namespace EduDom.Core.Domain.Entities
         public string ClassName { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+        public int CourseId { get; set; }
+        public Course Course { get; set; }
+        public int TeacherId { get; set; }
+        public Teacher Teacher { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using EduDom.Core.Application.Interfaces.Services;
-using EduDom.Infraestructure.Identity.Context;
 using EduDom.Infraestructure.Identity.Entities;
 using EduDom.Infraestructure.Identity.Services;
 using Microsoft.AspNetCore.Identity;
@@ -18,34 +17,34 @@ namespace EduDom.Infraestructure.Identity
     {
         public static void AddIdentityInfrastructure(this IServiceCollection service, IConfiguration config)
         {
-            if (config.GetValue<bool>("UseInMemoryDatabase"))
-            {
-                service.AddDbContext<IdentityContext>(options => options.UseInMemoryDatabase("IdentityDb"));
-            }
-            else
-            {
-                service.AddDbContext<IdentityContext>(options =>
-                    options.UseSqlServer(config.GetConnectionString("IdentityConnection"),
-                    m => m.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
-            }
+            //if (config.GetValue<bool>("UseInMemoryDatabase"))
+            //{
+            //    service.AddDbContext<IdentityContext>(options => options.UseInMemoryDatabase("IdentityDb"));
+            //}
+            //else
+            //{
+            //    service.AddDbContext<IdentityContext>(options =>
+            //        options.UseSqlServer(config.GetConnectionString("IdentityConnection"),
+            //        m => m.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
+            //}
 
-            #region 'Identity'
-            service.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<IdentityContext>()
-                .AddDefaultTokenProviders();
+            //#region 'Identity'
+            //service.AddIdentity<ApplicationUser, IdentityRole>()
+            //    .AddEntityFrameworkStores<IdentityContext>()
+            //    .AddDefaultTokenProviders();
 
-            service.ConfigureApplicationCookie(opts =>
-            {
-                opts.LoginPath = "/User";
-                opts.AccessDeniedPath = "/User/AccessDenied";
-            });
+            //service.ConfigureApplicationCookie(opts =>
+            //{
+            //    opts.LoginPath = "/User";
+            //    opts.AccessDeniedPath = "/User/AccessDenied";
+            //});
 
-            service.AddAuthentication();
-            #endregion
+            //service.AddAuthentication();
+            //#endregion
 
-            #region 'Services'
-            service.AddTransient<IAccountServices, AccountService>();
-            #endregion
+            //#region 'Services'
+            //service.AddTransient<IAccountServices, AccountService>();
+            //#endregion
         }
     }
 }

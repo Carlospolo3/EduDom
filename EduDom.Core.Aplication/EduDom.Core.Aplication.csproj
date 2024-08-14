@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Ardalis.Specification" Version="7.0.0" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
@@ -19,6 +20,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EduDom.Core.Domain\EduDom.Core.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\" />
+    <Folder Include="Interface\Services\" />
+    <Folder Include="Parameters\" />
+    <Folder Include="Wrappers\" />
   </ItemGroup>
 
 </Project>
