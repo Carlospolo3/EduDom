@@ -1,8 +1,6 @@
-using EduDom.Infraestructure.Identity.Entities;
 using EduDom.Infraestructure.Persistence;
 using EduDom.Infraestructure.Persistence.Context;
 using EduDom.Infraestructure.Persistence.Seeds;
-using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
